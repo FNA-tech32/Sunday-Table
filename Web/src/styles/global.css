@@ -1,0 +1,109 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--fuente-principal);
+  background-color: var(--crema);
+  color: var(--texto);
+  overflow-x: hidden;
+  /* Evita scroll horizontal */
+}
+
+/* ANIMACIONES GLOBALES - KEYFRAMES */
+
+/* Esta animación la uso para que los elementos aparezcan desde abajo
+   Me pareció más elegante que simplemente hacer un fade in */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animación para elementos que entran desde la izquierda
+   Funciona genial en la timeline */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Lo mismo pero desde la derecha
+   Ayuda a crear ese efecto de zigzag en la historia */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Un pequeño rebote que uso en los precios cuando haces hover */
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Este efecto de flotación continua lo reservo para elementos decorativos*/
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* CLASES DE UTILIDAD PARA ANIMACIONES*/
+
+/* Todo elemento empieza oculto y baja un poco
+   Cuando el JS detecta que está visible, le añade la clase 'mostrar'
+   El cubic-bezier que uso aquí hace que la animación sea más natural */
+.oculto {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Esta clase la activa el Intersection Observer
+   Hace que el elemento vuelva a su posición original con una transición suave */
+.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Transiciones suaves para todos los elementos interactivos */
+a,
+button,
+.tarjeta-producto,
+.boton-cta {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}

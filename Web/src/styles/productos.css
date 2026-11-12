@@ -1,0 +1,144 @@
+.seccion-productos {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.titulo-seccion {
+  text-align: center;
+  color: var(--cafe-oscuro);
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+/* Línea decorativa bajo el título */
+.titulo-seccion::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--cafe-claro), var(--cafe-medio));
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.cuadricula-productos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  /* Este perspective es clave para que funcione el efecto 3D
+     Sin él, las rotaciones se verían planas y sin profundidad */
+  perspective: 1000px;
+}
+
+/* TARJETA DE PRODUCTO CON EFECTOS AVANZADOS*/
+
+.tarjeta-producto {
+  background: var(--blanco);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Este es uno de mis efectos favoritos: un destello de luz que cruza la tarjeta
+   Lo conseguí con un gradiente que se mueve de izquierda a derecha al hacer hover
+   El truco está en que empieza fuera de la vista (left: -100%) */
+.tarjeta-producto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  z-index: 10;
+  transition: left 0.6s;
+  pointer-events: none;
+}
+
+/* La rotación 3D es sutil (solo 5 grados) porque más sería demasiado dramático
+   Combinada con el desplazamiento hacia arriba, da una sensación premium */
+.tarjeta-producto:hover {
+  transform: translateY(-15px) rotateY(5deg);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* Cuando haces hover, el brillo cruza toda la tarjeta */
+.tarjeta-producto:hover::before {
+  left: 100%;
+}
+
+/* IMAGEN CON ZOOM*/
+
+.imagen-producto {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Un zoom sutil en la imagen cuando haces hover
+   El 1.1 es perfecto, más sería excesivo */
+.tarjeta-producto:hover .imagen-producto {
+  transform: scale(1.1);
+}
+
+/* INFORMACIÓN DEL PRODUCTO*/
+
+.informacion {
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--blanco);
+  position: relative;
+  z-index: 5;
+}
+
+.informacion h3 {
+  color: var(--cafe-oscuro);
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  transition: color 0.3s;
+}
+
+.tarjeta-producto:hover .informacion h3 {
+  color: var(--cafe-medio);
+}
+
+.precio {
+  color: var(--cafe-claro);
+  font-weight: bold;
+  font-size: 1.3rem;
+  position: relative;
+  display: inline-block;
+}
+
+/* El precio hace un pequeño rebote al hacer hover*/
+.tarjeta-producto:hover .precio {
+  animation: bounce 0.6s ease;
+}
+
+/* RESPONSIVE*/
+
+@media (max-width: 768px) {
+  .seccion-productos {
+    padding: 3rem 1.5rem;
+  }
+
+  .titulo-seccion {
+    font-size: 2rem;
+  }
+
+  .cuadricula-productos {
+    gap: 1.5rem;
+  }
+
+  /* Reducir efectos 3D en móvil */
+  .tarjeta-producto:hover {
+    transform: translateY(-10px);
+  }
+}

@@ -1,0 +1,150 @@
+.seccion-testimonios {
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, var(--cafe-oscuro) 0%, var(--cafe-medio) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Patrón decorativo */
+.seccion-testimonios::before {
+    content: '★';
+    position: absolute;
+    font-size: 15rem;
+    opacity: 0.05;
+    top: 10%;
+    right: 5%;
+    color: var(--blanco);
+    transform: rotate(-15deg);
+}
+
+.contenedor-testimonios {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    text-align: center;
+    color: var(--blanco);
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+/*  GRID DE TESTIMONIOS*/
+
+.cuadricula-testimonios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* TARJETA DE TESTIMONIO*/
+
+.tarjeta-testimonio {
+    background: var(--blanco);
+    padding: 2.5rem 2rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tarjeta-testimonio:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Comillas decorativas */
+.comillas {
+    font-size: 5rem;
+    color: var(--cafe-claro);
+    opacity: 0.2;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+/* CONTENIDO */
+
+.comentario {
+    color: var(--texto);
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+}
+
+/* INFO DEL CLIENTE*/
+
+.informacion-cliente {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--crema);
+}
+
+.foto-cliente {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid var(--cafe-claro);
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.tarjeta-testimonio:hover .foto-cliente {
+    transform: scale(1.1);
+}
+
+.nombre-cliente {
+    color: var(--cafe-oscuro);
+    font-size: 1.1rem;
+    margin-bottom: 0.2rem;
+}
+
+.rol-cliente {
+    color: var(--cafe-medio);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* ANIMACIONES DE ENTRADA*/
+
+.tarjeta-testimonio.oculto {
+    opacity: 0;
+    transform: scale(0.9);
+}
+
+.tarjeta-testimonio.mostrar {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* RESPONSIVE*/
+
+@media (max-width: 768px) {
+    .seccion-testimonios {
+        padding: 3rem 1.5rem;
+    }
+
+    .titulo-seccion {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .cuadricula-testimonios {
+        gap: 1.5rem;
+    }
+
+    .tarjeta-testimonio {
+        padding: 2rem 1.5rem;
+    }
+
+    .comillas {
+        font-size: 4rem;
+    }
+}

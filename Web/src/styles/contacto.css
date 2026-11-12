@@ -1,0 +1,204 @@
+.seccion-contacto {
+    padding: 5rem 2rem;
+    background: var(--blanco);
+}
+
+.contenedor-contacto {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.titulo-seccion {
+    text-align: center;
+    color: var(--cafe-oscuro);
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.titulo-seccion::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cafe-claro), var(--cafe-medio));
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+/* GRID DE CONTACTO*/
+
+.cuadricula-contacto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+/* CAJAS DE INFO*/
+
+.caja-informacion,
+.caja-horarios {
+    background: linear-gradient(135deg, var(--crema) 0%, #f9f3e9 100%);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.caja-informacion:hover,
+.caja-horarios:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ITEMS DE INFORMACIÓN*/
+
+.elemento-informacion {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.elemento-informacion:last-child {
+    margin-bottom: 0;
+}
+
+.icono {
+    font-size: 2.5rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.elemento-informacion h3 {
+    color: var(--cafe-oscuro);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.elemento-informacion p {
+    color: var(--texto);
+    line-height: 1.6;
+}
+
+.elemento-informacion a {
+    color: var(--cafe-oscuro);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.elemento-informacion a:hover {
+    color: var(--cafe-medio);
+    text-decoration: underline;
+}
+
+/* HORARIOS*/
+
+.caja-horarios h3 {
+    color: var(--cafe-oscuro);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.elemento-horario {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(111, 78, 55, 0.2);
+}
+
+.elemento-horario:last-of-type {
+    border-bottom: none;
+}
+
+.dia {
+    color: var(--cafe-oscuro);
+    font-weight: 600;
+}
+
+.hora {
+    color: var(--cafe-medio);
+    font-weight: 500;
+}
+
+/* REDES SOCIALES*/
+
+.redes-sociales {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--cafe-claro);
+    text-align: center;
+}
+
+.redes-sociales h4 {
+    color: var(--cafe-oscuro);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.iconos-redes {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.red-social {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background: var(--blanco);
+    border-radius: 50%;
+    font-size: 1.5rem;
+    text-decoration: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.red-social:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/*ANIMACIONES DE ENTRADA*/
+
+.caja-informacion.oculto,
+.caja-horarios.oculto {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.caja-informacion.mostrar,
+.caja-horarios.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .seccion-contacto {
+        padding: 3rem 1.5rem;
+    }
+
+    .titulo-seccion {
+        font-size: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .cuadricula-contacto {
+        gap: 1.5rem;
+    }
+
+    .caja-informacion,
+    .caja-horarios {
+        padding: 2rem 1.5rem;
+    }
+
+    .icono {
+        font-size: 2rem;
+    }
+}

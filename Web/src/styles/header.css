@@ -1,0 +1,153 @@
+.cabecera {
+  background-color: var(--cafe-oscuro);
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Estilo cuando hacemos scroll */
+.cabecera.con-scroll {
+  background-color: rgba(44, 24, 16, 0.9);
+  backdrop-filter: blur(10px);
+  /* Efecto de desenfoque moderno */
+  padding: 0.5rem 2rem;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.contenedor-nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LOGO CON ANIMACIÓN */
+
+.logo {
+  color: var(--blanco);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.logo:hover {
+  color: var(--cafe-claro);
+  transform: scale(1.05);
+}
+
+.cabecera.con-scroll .logo {
+  font-size: 1.3rem;
+}
+
+/*  NAVEGACIÓN */
+
+.enlaces-nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.enlaces-nav a {
+  color: var(--crema);
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  padding: 0.5rem 0;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Línea animada debajo de los enlaces */
+.enlaces-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--cafe-claro);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateX(-50%);
+}
+
+.enlaces-nav a:hover {
+  color: var(--cafe-claro);
+}
+
+.enlaces-nav a:hover::after {
+  width: 100%;
+}
+
+/* MENÚ MÓVIL */
+
+.boton-menu {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--blanco);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.boton-menu:hover {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+  .boton-menu {
+    display: block;
+  }
+
+  .enlaces-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(111, 78, 55, 0.95);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
+    gap: 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .enlaces-nav li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .enlaces-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .enlaces-nav.activo {
+    display: flex;
+    animation: fadeInDown 0.3s ease-out;
+  }
+
+  .enlaces-nav a::after {
+    display: none;
+    /* Quitar la línea en móvil */
+  }
+}
+
+/* Animación para el menú móvil */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

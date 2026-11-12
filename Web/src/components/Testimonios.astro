@@ -1,0 +1,55 @@
+---
+import "../styles/testimonios.css";
+
+const testimonios = [
+    {
+        nombre: "María González",
+        comentario:
+            "El mejor café de la ciudad sin duda. El ambiente es acogedor y el personal es increíblemente amable. ¡Mi lugar favorito para trabajar!",
+        foto: "https://randomuser.me/api/portraits/women/44.jpg",
+        rol: "Cliente Habitual",
+    },
+    {
+        nombre: "Carlos Ruiz",
+        comentario:
+            "La calidad del café es excepcional. Se nota que cuidan cada detalle, desde la selección de granos hasta la preparación. Totalmente recomendable.",
+        foto: "https://randomuser.me/api/portraits/men/32.jpg",
+        rol: "Amante del Café",
+    },
+    {
+        nombre: "Laura Martín",
+        comentario:
+            "Descubrí este lugar hace un año y desde entonces vengo casi a diario. Sus especialidades son únicas y el servicio es impecable.",
+        foto: "https://randomuser.me/api/portraits/women/68.jpg",
+        rol: "Fanática del Espresso",
+    },
+];
+---
+
+<section id="testimonios" class="seccion-testimonios">
+    <div class="contenedor-testimonios">
+        <h2 class="titulo-seccion oculto">Lo Que Dicen Nuestros Clientes</h2>
+
+        <div class="cuadricula-testimonios">
+            {
+                testimonios.map((test) => (
+                    <div class="tarjeta-testimonio oculto">
+                        <div class="comillas">"</div>
+                        <p class="comentario">{test.comentario}</p>
+                        <div class="informacion-cliente">
+                            <img
+                                src={test.foto}
+                                alt={test.nombre}
+                                class="foto-cliente"
+                            />
+                            <div>
+                                <h4 class="nombre-cliente">{test.nombre}</h4>
+                                <p class="rol-cliente">{test.rol}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+</section>

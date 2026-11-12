@@ -1,0 +1,165 @@
+.seccion-intro {
+    padding: 5rem 2rem;
+    background: var(--blanco);
+}
+
+.contenedor-intro {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ============================================
+   CONTENIDO PRINCIPAL
+   ============================================ */
+
+.contenido-intro {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.contenido-intro h2 {
+    font-size: 2.5rem;
+    color: var(--cafe-oscuro);
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.contenido-intro h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--cafe-claro), var(--cafe-medio));
+    margin: 1rem auto 0;
+    border-radius: 2px;
+}
+
+.texto-intro {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--texto);
+    max-width: 800px;
+    margin: 0 auto 1.5rem;
+}
+
+.texto-intro:last-child {
+    margin-bottom: 0;
+}
+
+/* ============================================
+   GRID DE CARDS
+   ============================================ */
+
+.cuadricula-intro {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.tarjeta-intro {
+    background: linear-gradient(135deg, var(--crema) 0%, #f9f3e9 100%);
+    padding: 2.5rem 2rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tarjeta-intro:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* ============================================
+   ICONOS
+   ============================================ */
+
+.icono-tarjeta {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Delay diferente para cada icono */
+.tarjeta-intro:nth-child(1) .icono-tarjeta {
+    animation-delay: 0s;
+}
+
+.tarjeta-intro:nth-child(2) .icono-tarjeta {
+    animation-delay: 0.5s;
+}
+
+.tarjeta-intro:nth-child(3) .icono-tarjeta {
+    animation-delay: 1s;
+}
+
+/* ============================================
+   TEXTO DE CARDS
+   ============================================ */
+
+.tarjeta-intro h3 {
+    font-size: 1.5rem;
+    color: var(--cafe-oscuro);
+    margin-bottom: 1rem;
+}
+
+.tarjeta-intro p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--texto);
+}
+
+/* ============================================
+   ANIMACIONES DE ENTRADA
+   ============================================ */
+
+.contenido-intro.oculto {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.contenido-intro.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.tarjeta-intro.oculto {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.tarjeta-intro.mostrar {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .seccion-intro {
+        padding: 3rem 1.5rem;
+    }
+
+    .contenido-intro h2 {
+        font-size: 2rem;
+    }
+
+    .texto-intro {
+        font-size: 1rem;
+    }
+
+    .cuadricula-intro {
+        gap: 1.5rem;
+    }
+
+    .tarjeta-intro {
+        padding: 2rem 1.5rem;
+    }
+
+    .icono-tarjeta {
+        font-size: 3rem;
+    }
+}

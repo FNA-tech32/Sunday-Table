@@ -1,0 +1,11 @@
+.pie-pagina {
+  background-color: var(--cafe-oscuro);
+  color: var(--crema);
+  text-align: center;
+  padding: 2rem;
+  margin-top: 4rem;
+}
+
+.pie-pagina p {
+  margin-bottom: 1rem;
+}

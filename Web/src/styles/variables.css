@@ -1,0 +1,13 @@
+:root {
+  /* Elegí esta paleta de colores porque quería algo cálido y acogedor
+     Los tonos café funcionan perfectamente para una cafetería y no son genéricos
+     El crema de fondo evita el blanco puro que puede cansar la vista */
+  --cafe-oscuro: #1A1A1A;
+  --cafe-medio: #6B4423;
+  --cafe-claro: #D4A574;
+  --crema: #FAF7F2;
+  --blanco: #FFFFFF;
+  --texto: #2D2D2D;
+
+  --fuente-principal: 'Segoe UI', system-ui, sans-serif;
+}

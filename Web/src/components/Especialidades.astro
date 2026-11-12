@@ -1,0 +1,49 @@
+---
+import '../styles/especialidades.css';
+
+const especialidades = [
+  {
+    titulo: "Tostado Artesanal",
+    descripcion: "Tostamos nuestros granos en pequeños lotes para garantizar frescura y sabor excepcional.",
+    detalle: "Granos seleccionados de origen único, tostados con maestría para resaltar sus notas naturales."
+  },
+  {
+    titulo: "Baristas Expertos",
+    descripcion: "Nuestro equipo cuenta con certificaciones internacionales en arte latte y preparación de café.",
+    detalle: "Cada taza es preparada con técnica profesional y pasión por la perfección."
+  },
+  {
+    titulo: "Sostenibilidad",
+    descripcion: "Comprometidos con el comercio justo y prácticas ecológicas en toda nuestra cadena.",
+    detalle: "Trabajamos directamente con agricultores para asegurar calidad y condiciones justas."
+  }
+];
+---
+
+<section id="especialidades" class="seccion-especialidades">
+  <div class="contenedor-especialidades">
+    <h2 class="titulo-seccion oculto">Lo Que Nos Hace Únicos</h2>
+    
+    <div class="cuadricula-especialidades">
+      {especialidades.map((esp) => (
+        <!-- Cada tarjeta tiene dos caras: frente y reverso
+             Al hacer hover, se gira mostrando más información -->
+        <div class="tarjeta-volteo oculto">
+          <div class="tarjeta-volteo-interna">
+            <!-- Frente de la tarjeta -->
+            <div class="tarjeta-volteo-frente">
+              <h3>{esp.titulo}</h3>
+              <p>{esp.descripcion}</p>
+            </div>
+            
+            <!-- Reverso de la tarjeta -->
+            <div class="tarjeta-volteo-reverso">
+              <h3>{esp.titulo}</h3>
+              <p>{esp.detalle}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

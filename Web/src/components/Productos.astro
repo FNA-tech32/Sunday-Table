@@ -1,0 +1,86 @@
+---
+import "../styles/productos.css";
+
+// Amplié el menú a 12 productos porque con 3 o 4 se veía muy vacío
+// Además así puedo demostrar mejor el efecto de cascada en la animación
+const productos = [
+  {
+    nombre: "Cappuccino Italiano",
+    precio: "3.50€",
+    img: "https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500",
+  },
+  {
+    nombre: "Espresso Doble",
+    precio: "2.50€",
+    img: "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=500",
+  },
+  {
+    nombre: "Latte Caramelo",
+    precio: "4.00€",
+    img: "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500",
+  },
+  {
+    nombre: "Mocha Helado",
+    precio: "4.50€",
+    img: "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=500",
+  },
+  {
+    nombre: "Flat White",
+    precio: "3.80€",
+    img: "https://images.unsplash.com/photo-1542385151-efd9341b7d0a?w=500",
+  },
+  {
+    nombre: "Americano",
+    precio: "2.80€",
+    img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=500",
+  },
+  {
+    nombre: "Café Frappé",
+    precio: "4.20€",
+    img: "https://images.unsplash.com/photo-1551024506-0bccd828d307?w=500",
+  },
+  {
+    nombre: "Macchiato",
+    precio: "3.00€",
+    img: "https://images.unsplash.com/photo-1579992357154-faf4bde95b3d?w=500",
+  },
+  {
+    nombre: "Cold Brew",
+    precio: "3.90€",
+    img: "https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=500",
+  },
+  {
+    nombre: "Affogato",
+    precio: "4.80€",
+    img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=500",
+  },
+  {
+    nombre: "Chai Latte",
+    precio: "3.70€",
+    img: "https://images.unsplash.com/photo-1578899952107-9d9d67cda17f?w=500",
+  },
+  {
+    nombre: "Chocolate Caliente",
+    precio: "3.50€",
+    img: "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?w=500",
+  },
+];
+---
+
+<section id="productos" class="seccion-productos">
+  <h2 class="titulo-seccion oculto">Nuestros Favoritos</h2>
+
+  <div class="cuadricula-productos">
+    {
+      productos.map((prod) => (
+        <div class="tarjeta-producto oculto">
+          <img src={prod.img} alt={prod.nombre} class="imagen-producto" />
+          <div class="informacion">
+            <h3>{prod.nombre}</h3>
+            <p class="precio">{prod.precio}</p>
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>

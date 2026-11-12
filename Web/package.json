@@ -1,0 +1,14 @@
+{
+  "name": "sunday-table",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "node init && astro dev",
+    "build": "node init && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^5.16.4"
+  }
+}

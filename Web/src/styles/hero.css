@@ -1,0 +1,223 @@
+/* ============================================
+   ANIMACIÓN DE FONDO
+   ============================================ */
+
+/* Este zoom muy sutil en el fondo hace que la imagen parezca respirar
+   Tarda 20 segundos en completar el ciclo, así no marea */
+@keyframes zoomBackground {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.seccion-principal {
+  height: 90vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1497935586351-b67a49e012bf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--blanco);
+  padding: 0 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* El truco para animar el fondo sin que el contenido se mueva
+   es usar un pseudo-elemento que se anima por debajo */
+.seccion-principal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  animation: zoomBackground 20s ease-in-out infinite;
+  z-index: 0;
+}
+
+/* Overlay para mantener el contraste */
+.seccion-principal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+/* ============================================
+   PARTÍCULAS FLOTANTES (solo CSS)
+   ============================================ */
+
+.particulas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.particula {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  /* Reutilizo la animación float que definí en global.css */
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Me gusta variar el tamaño, posición y velocidad de cada partícula
+   Esto hace que parezcan moverse de forma orgánica y no repetitiva
+   Cada una tiene su propio delay para que no se sincronicen */
+.particula:nth-child(1) {
+  width: 10px;
+  height: 10px;
+  left: 10%;
+  top: 20%;
+  animation-duration: 7s;
+  animation-delay: 0s;
+}
+
+.particula:nth-child(2) {
+  width: 15px;
+  height: 15px;
+  left: 30%;
+  top: 60%;
+  animation-duration: 5s;
+  animation-delay: 1s;
+}
+
+.particula:nth-child(3) {
+  width: 8px;
+  height: 8px;
+  left: 70%;
+  top: 30%;
+  animation-duration: 6s;
+  animation-delay: 2s;
+}
+
+.particula:nth-child(4) {
+  width: 12px;
+  height: 12px;
+  left: 85%;
+  top: 70%;
+  animation-duration: 8s;
+  animation-delay: 0.5s;
+}
+
+.particula:nth-child(5) {
+  width: 6px;
+  height: 6px;
+  left: 50%;
+  top: 50%;
+  animation-duration: 7s;
+  animation-delay: 1.5s;
+}
+
+/* ============================================
+   CONTENIDO DEL HERO
+   ============================================ */
+
+.contenido-principal {
+  position: relative;
+  z-index: 3;
+}
+
+.contenido-principal h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  animation: fadeInUp 1s ease-out 0.2s both;
+}
+
+.contenido-principal p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+  animation: fadeInUp 1s ease-out 0.4s both;
+}
+
+/* ============================================
+   BOTÓN CON EFECTOS AVANZADOS
+   ============================================ */
+
+.boton-cta {
+  display: inline-block;
+  padding: 14px 35px;
+  background: linear-gradient(135deg, var(--cafe-claro), var(--cafe-medio));
+  color: var(--blanco);
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  /* Delay de 0.6s para que aparezca después del título y el párrafo */
+  animation: fadeInUp 1s ease-out 0.6s both;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* El mismo efecto de brillo que usé en las tarjetas de productos
+   Me gusta mantener consistencia en los efectos visuales */
+.boton-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s;
+}
+
+.boton-cta:hover::before {
+  left: 100%;
+}
+
+/* El botón sube un poco y crece ligeramente al hacer hover
+   La sombra también se hace más grande para dar la sensación de que se eleva */
+.boton-cta:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 25px rgba(166, 123, 91, 0.5);
+}
+
+/* Cuando haces click, se hunde un poco - feedback táctil visual */
+.boton-cta:active {
+  transform: translateY(-1px) scale(1.02);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+  .contenido-principal h1 {
+    font-size: 2.5rem;
+  }
+
+  .contenido-principal p {
+    font-size: 1rem;
+  }
+
+  .particula {
+    display: none;
+    /* Ocultar partículas en móvil para mejor rendimiento */
+  }
+}

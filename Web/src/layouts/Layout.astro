@@ -1,0 +1,26 @@
+---
+import "../styles/variables.css";
+import "../styles/global.css";
+
+// Hago que el título sea personalizable por si quiero páginas diferentes
+// Por defecto uso "Sunday Table" pero se puede cambiar desde cada página
+const { titulo = "Sunday Table" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Sunday Table - Café artesanal, repostería y brunch de especialidad. Disfruta de la mejor experiencia gastronómica y momentos compartidos."
+    />
+    <title>{titulo}</title>
+  </head>
+  <body>
+    <slot />
+    <!-- Este script se ejecuta en cada página y activa todas las animaciones -->
+    <script src="/src/scripts/animations.js"></script>
+  </body>
+</html>
